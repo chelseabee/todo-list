@@ -1,26 +1,96 @@
+
+
+
 body{
-    display: block;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap:1.5rem;
     text-align: center;
     font-size: 4rem;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(174, 221, 248);
+    background: linear-gradient(355deg, rgba(71,186,255,1) 0%, rgba(245,188,243,1) 79%);
+    background-position: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height:100vh;
+}
+
+h1{
+    margin:0;
+}
+
+h2{
+    font-size: 1.5rem;
+    margin:0;
+}
+section{
+    display:flex;
+    flex-direction: column;
+    /*margin-left:6rem;*/
+    background-color: white;
+    max-width:70%;
+    align-items: center;
+    justify-content: space-evenly;
+    gap:1rem;
+    border-radius: 20px;
+    padding:1.5rem;
+}
+.input-todo{
+    background: rgba(168, 215, 243, 0.205);
+    font-size: 1rem;
+    padding:10px;
+    border-radius: 10px;
 }
 
 li{
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-decoration: none;
     list-style: none;
     margin:0;
+    text-transform:capitalize;
+    text-align:left;
+    padding:5px;
 }
+
 ul{
     margin:0;
 }
 
 ul li:nth-child(odd){
-    background-color: azure;
+    background-color: rgba(168, 215, 243, 0.205);
 }
 
-i{
-    color:rgb(65, 65, 65);
-    font-size: 1rem;
+
+.checkOff{
+    text-decoration: line-through;
+}
+
+.notCheckOff{
+    text-decoration-style:none; 
+}
+    
+.enter-todo{
+    color:white;
+    border:none;
+    border-radius: 10px;
+    background-color: rgb(184, 67, 184);
+    font-size: 1.3rem;
+    padding:10px;
+
+}
+.enter-todo:hover{
+    background-color: rgba(184, 67, 184, 0.603);
+}
+
+button {
+ color:rgb(184, 67, 184);
+ border:none;
+ background-color:transparent;
+ font-size: 1.5rem;
+}
+button:hover{
+    color:rgba(184, 67, 184, 0.603);
+    cursor: pointer;
 }
