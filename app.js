@@ -3,21 +3,13 @@ const userInput = document.getElementById('todo-input');
 const enterBtn = document.getElementById('todo-enter');
 const createList = document.getElementById('display-task');
 const deleteTaskBtn = document.getElementById('delete');
-const checkedBtn = document.getElementById('checked');
+const checkedBtn = document.getElementById('check');
 const todosOnList = [];
 
 // Event Listeners
 enterBtn.addEventListener('click',checkForUserInput); 
-
-
-/*
-let trashBtn = document.createElement("button");
-trashBtn.innerHTML = 'delete';
-trashBtn.addEventListener('click',function(){
-todosOnList.unshift()
-});
-document.body.appendChild(trashBtn);
-*/
+//checkedBtn.addEventListener('click',checkTask);
+//deleteTaskBtn.addEventListener('click',deleteTask);
 
 
 function checkForUserInput(){
@@ -25,29 +17,41 @@ function checkForUserInput(){
         alert("Please enter a task");
     }else{
         addNewTask();
+        userInput.value = " ";
 
     }
 };
 
 function addNewTask (){
    
-    createList.innerHTML += `<li>
-    ${createList.children.length + 1}  
-    ${userInput.value} 
-    <button id='delete'  onclick='deleteTask()'><i class="fa-solid fa-circle-xmark"></i></button>
-    <button id='checked' onclick ='crossOff()'><i class="fa-solid fa-circle-check"></i></button>
+   createList.innerHTML += 
+   `<li >
+   ${createList.children.length + 1}  
+    <span class='notCheckOff'>${userInput.value} </span>
+    <button id='delete'  onclick='deleteTask(event)'><i class="fa-solid fa-circle-xmark"></i></button>
+    <button id='check'  onclick='checkTask(event)'><i class="fa-solid fa-circle-check"></i></button>
     </li>`;
+
         todosOnList.push(createList);
         console.log(todosOnList[0]);  
          
 }
 
-function deleteTask(){
-    for(var i = 0; i < todosOnList.length; i++){
-    todosOnList[i].parentElement.remove();
-    }
+
+function deleteTask(e){
+    e.preventDefault();
+    var element = e.target;
+        element.parentElement.parentElement.remove();
+    
 };
 
+
+function checkTask(e){
+    e.preventDefault();
+    var element = e.target;
+    element.parentElement.parentElement.classList.toggle('checkOff');
+    
+};
 
 
 
@@ -58,6 +62,8 @@ userInput.addEventListener('keyup',function onEvent(event){
         document.getElementById('todo-enter').click();   
     }
     });
+
+
 
 
 
